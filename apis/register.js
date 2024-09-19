@@ -7,9 +7,10 @@ import jwt from 'jsonwebtoken'
 registerRouter.post("/",async(req,res)=>{
     const userData = req.body
     const collection = db.collection("users")
-    const userObj = await collection.findOne({email:userData.email})
+    const userEmail = await collection.findOne({email:userData.email})
+    const userName = await collection.findOne({userName:userData.userName})
       try {
-        if(userObj){
+        if(userName || userEmail){
             
             res.status(400).send({message:"User already exist",code:1})
         }

@@ -8,6 +8,7 @@ import checkOtpRouter from './apis/check-otp.js';
 import resetPasswordRouter from './apis/reset-password.js';
 import userInfo from './apis/user-info.js';
 import setProfile from './apis/set-profile.js';
+import allData from './apis/get-all.js';
 
 const server = express()
 server.use(express.json())
@@ -21,6 +22,7 @@ server.use('/check-otp',checkOtpRouter)
 server.use('/reset-password',resetPasswordRouter)
 server.use('/user-info',userInfo)
 server.use('/set-profile',setProfile)
+server.use('/all-users',allData)
 const port= 9000;
 server.listen(port,()=>{
     console.log(Date().toString(),"express port : " ,port)
