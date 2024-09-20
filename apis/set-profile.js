@@ -19,7 +19,7 @@ setProfile.post('/:userName',upload.single('file'), async(req,res)=>{
     const param = req.params
     try {
          await cloudinary.uploader
-         .upload(req.file.path,{folder:'images'})
+         .upload(req.file.path)
          .then(async(result)=>
            await db.collection('users').updateOne({userName:param.userName},{$set:{profile:result.secure_url}})
         )
