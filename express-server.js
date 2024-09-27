@@ -14,6 +14,7 @@ import followRequest from './apis/follow/follow-request.js';
 import acceptRequest from './apis/follow/accept-request.js';
 import rejectRequest from './apis/follow/reject-request.js';
 import sendRouter from './apis/send.js';
+import getChatRouter from './apis/get-chat.js';
 
 const server = express()
 server.use(express.json())
@@ -33,6 +34,7 @@ server.use('/follow-request',followRequest)
 server.use('/accept-request',acceptRequest)
 server.use('/reject-request',rejectRequest)
 server.use('/send',sendRouter)
+server.use('/get-chat',getChatRouter)
 const port= 9000;
 server.listen(port,()=>{
     console.log(Date().toString(),"express port : " ,port)
