@@ -16,7 +16,7 @@ forgotPasswordRouter.post("/",async(req,res)=>{
               await transporter.sendMail({
                 ...mailOptions,
                 to:userData.email,
-                subject:"Password reset",
+                subject:"OTP verify ",
                 text:
                 `Hi!! ${get_otp.name}!!,
               otp: ${get_otp.otp}

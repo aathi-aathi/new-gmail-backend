@@ -8,9 +8,8 @@ registerRouter.post("/",async(req,res)=>{
     const userData = req.body
     const collection = db.collection("users")
     const userEmail = await collection.findOne({email:userData.email})
-    const userName = await collection.findOne({userName:userData.userName})
       try {
-        if(userName || userEmail){
+        if(userEmail){
             
             res.status(400).send({message:"User already exist",code:1})
         }
@@ -23,7 +22,8 @@ registerRouter.post("/",async(req,res)=>{
                     await collection.insertOne({
                 ...userData,
                 password:hash,
-               isVerified:false
+               isVerified:false,
+               profile:'https://cdn-icons-png.flaticon.com/128/3177/3177440.png',
             })
             await collection.updateOne({email:userData.email},{$set:{otp:Math.floor(1000 + Math.random() * 9000)}})
             const get_otp = await collection.findOne({email:userData.email})

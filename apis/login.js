@@ -15,7 +15,7 @@ loginRouter.post("/",async(req,res)=>{
               res.status(500).send({msg:"Something went wrong"})
             }else{
                 if(result){
-                    var token = jwt.sign({userName:userObj.userName},process.env.JWT_SECRET)
+                    var token = jwt.sign({email:userObj.email},process.env.JWT_SECRET)
                      res.send({message:'Login successfully',token:token})
                 }
                 else {
