@@ -15,13 +15,13 @@ const storage = multer.diskStorage({
 const upload = multer({
     storage:storage
 })
-setProfile.post('/:userName',upload.single('file'), async(req,res)=>{
-    const param = req.params
+setProfile.post('/:userEmail',upload.single('file'), async(req,res)=>{
+    const {userEmail} = req.params
     try {
          await cloudinary.uploader
          .upload(req.file.path)
          .then(async(result)=>
-           await db.collection('users').updateOne({user_name:param.userName},{$set:{profile:result.secure_url}})
+           await db.collection('users').updateOne({email:userEmail},{$set:{profile:result.secure_url}})
         )
         .catch((err)=>console.log(err))
         res.send({msg:'success'})

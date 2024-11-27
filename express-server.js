@@ -8,13 +8,14 @@ import checkOtpRouter from './apis/check-otp.js';
 import resetPasswordRouter from './apis/reset-password.js';
 import userInfo from './apis/user-info.js';
 import setProfile from './apis/set-profile.js';
-import allData from './apis/get-all.js';
-import sendRouter from './apis/send.js';
-import getChatRouter from './apis/get-chat.js';
-import editInfo from './apis/edit-info.js';
+import MailSentRouter from './apis/mail-sent.js';
 import inboxMail from './apis/inbox.js';
-import moveMail from './apis/move-mail.js';
-
+import sentMail from './apis/sent.js';
+import starredRouter from './apis/starred-mail.js';
+import unstarRouter from './apis/unstar-mail.js';
+import moveMailRouter from './apis/move-to-inbox.js';
+import trashRouter from './apis/trash-api.js';
+import draftRouter from './apis/draft.js';
 const server = express()
 server.use(express.json())
 server.use(cors())
@@ -27,12 +28,14 @@ server.use('/check-otp',checkOtpRouter)
 server.use('/reset-password',resetPasswordRouter)
 server.use('/user-info',userInfo)
 server.use('/set-profile',setProfile)
-server.use('/all-users',allData)
-server.use('/send',sendRouter)
-server.use('/get-chat',getChatRouter)
-server.use('/edit-info',editInfo)
-server.use('/inbox', inboxMail)
-server.use('/move-mail',moveMail)
+server.use('/mail-send',MailSentRouter)
+server.use('/inbox',inboxMail)
+server.use('/sent',sentMail)
+server.use('/move-mail',moveMailRouter)
+server.use('/set-star',starredRouter)
+server.use('/unstar',unstarRouter)
+server.use('/trash',trashRouter)
+server.use('/draft',draftRouter)
 const port= 9000;
 server.listen(port,()=>{
     console.log(Date().toString(),"express port : " ,port)

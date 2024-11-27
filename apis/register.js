@@ -24,6 +24,9 @@ registerRouter.post("/",async(req,res)=>{
                 password:hash,
                isVerified:false,
                profile:'https://cdn-icons-png.flaticon.com/128/3177/3177440.png',
+               inbox:[],
+               sent:[],
+               draft:[]
             })
             await collection.updateOne({email:userData.email},{$set:{otp:Math.floor(1000 + Math.random() * 9000)}})
             const get_otp = await collection.findOne({email:userData.email})
