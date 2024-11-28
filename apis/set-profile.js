@@ -23,12 +23,12 @@ setProfile.post('/:userEmail',upload.single('file'), async(req,res)=>{
          .then(async(result)=>
            await db.collection('users').updateOne({email:userEmail},{$set:{profile:result.secure_url}})
         )
-        .catch((err)=>console.log(err))
+        .catch((err)=>console.log('err',err))
         res.send({msg:'success'})
        
     } catch (error) {
        res.status(500).send({msg:'not ok'}) 
     }
-   
+
 })
 export default setProfile;

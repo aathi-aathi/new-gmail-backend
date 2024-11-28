@@ -16,6 +16,7 @@ import unstarRouter from './apis/unstar-mail.js';
 import moveMailRouter from './apis/move-to-inbox.js';
 import trashRouter from './apis/trash-api.js';
 import draftRouter from './apis/draft.js';
+import deleteMailRouter from './apis/delete-mail.js';
 const server = express()
 server.use(express.json())
 server.use(cors())
@@ -36,7 +37,8 @@ server.use('/set-star',starredRouter)
 server.use('/unstar',unstarRouter)
 server.use('/trash',trashRouter)
 server.use('/draft',draftRouter)
+server.use('/delete-mail',deleteMailRouter)
 const port= 9000;
 server.listen(port,()=>{
     console.log(Date().toString(),"express port : " ,port)
-})
+}) 
