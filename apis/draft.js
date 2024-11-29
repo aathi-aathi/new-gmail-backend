@@ -14,8 +14,8 @@ draftRouter.get('/:email',async(req,res)=>{
  draftRouter.post("/",async(req,res)=>{
   const userData = req.body
   const showDate = new Date()
-    const date = showDate.getDate()+'/'+(showDate.getMonth()+1)+'/'+
-     showDate.getFullYear()
+  const date = showDate.getDate()+'/'+(showDate.getMonth()+1)+'/'+
+  showDate.getFullYear()
     try {
         await db.collection("users").updateOne(
             {email:userData.from},

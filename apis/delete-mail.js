@@ -1,7 +1,6 @@
 import express from 'express'
 import { db } from '../mongodb/mongodb-connect.js'
 const deleteMailRouter=express.Router()
-
 deleteMailRouter.put("/",async(req,res)=>{
     const {userEmail,id} = req.body
     const inbox= await db.collection("users").findOne({email:userEmail,"inbox.id":id})
@@ -36,6 +35,5 @@ deleteMailRouter.put("/",async(req,res)=>{
     } catch (error) {
         res.send(error)
     }
-   
 })
 export default deleteMailRouter;

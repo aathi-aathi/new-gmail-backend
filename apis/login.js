@@ -22,8 +22,7 @@ loginRouter.post("/",async(req,res)=>{
                     res.status(400).send({msg:"Please enter valid password",code:0})
                 }}
         });
-       }
-       
+       }  
     else{
         res.status(500).send({msg:"You are not user, Please register your account",code:1})
     }

@@ -1,8 +1,6 @@
 import nodemailer from 'nodemailer'
 import dotenv from 'dotenv'
-
 dotenv.config()
-
 const transporter = nodemailer.createTransport({
     service:'gmail',
     auth:{
@@ -12,9 +10,8 @@ const transporter = nodemailer.createTransport({
 })
 const mailOptions = {
     from:'arulaathish6@gmail.com',
-    to:['aathivdr2004@gmail.com'],
+    to:[],
     subject:'Gmail Sending',
     text:'Sending Mails are so easy'
 }
-
 export {transporter,mailOptions}

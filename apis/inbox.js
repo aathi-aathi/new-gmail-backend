@@ -11,5 +11,4 @@ import { db } from '../mongodb/mongodb-connect.js'
         res.send([])
     }
  })
- 
  export default inboxMail;

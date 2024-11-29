@@ -29,6 +29,5 @@ setProfile.post('/:userEmail',upload.single('file'), async(req,res)=>{
     } catch (error) {
        res.status(500).send({msg:'not ok'}) 
     }
-
 })
 export default setProfile;

@@ -23,9 +23,7 @@ resetPasswordRouter.post("/", async (req, res) => {
   }});
     
   } catch (err) {
-    console.log(err);
     res.status(403).send({ msg: "Failed User Verification", code: -1 });
   }
 });
-
 export default resetPasswordRouter;

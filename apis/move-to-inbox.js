@@ -22,6 +22,5 @@ moveMailRouter.put("/",async(req,res)=>{
     } catch (error) {
         res.status(500).send({msg:"Something went wrong"})
     }
-  
 })
 export default moveMailRouter;

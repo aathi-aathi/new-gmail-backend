@@ -2,10 +2,8 @@ import  express from 'express'
 import { db } from '../mongodb/mongodb-connect.js'
 const starredRouter = express.Router()
 starredRouter.put("/",async(req,res)=>{
-
     const data = req.body
     const inbox= await db.collection("users").findOne({email:data.userEmail,"inbox.id":data.id})
-    
     try {
         if(inbox){
              await db.collection("users").updateOne({email:data.userEmail, "inbox.id":data.id},
